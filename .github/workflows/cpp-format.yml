@@ -2,18 +2,16 @@ name: C/C++ Format
 
 on:
   pull_request:
-    branches: [master]
+    branches: [main]
 
 jobs:
-  build:
+  formatting-check:
+    name: Formatting Check
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
-      - uses: DoozyX/clang-format-lint-action@v0.17
+      - name: Run clang-format style check for C/C++/Protobuf programs.
+        uses: jidicula/clang-format-action@v4.11.0
         with:
-          source: "."
-          exclude: "./lib"
-          extensions: "h,hpp,cpp,c"
-          clangFormatVersion: 16
-          inplace: True
+          clang-format-version: "13"
+          check-path: "src"

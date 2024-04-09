@@ -1,0 +1,19 @@
+name: C/C++ Format
+
+on:
+  pull_request:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: DoozyX/clang-format-lint-action@v0.17
+        with:
+          source: "."
+          exclude: "./lib"
+          extensions: "h,hpp,cpp,c"
+          clangFormatVersion: 16
+          inplace: True

@@ -30,4 +30,3 @@ TEST_CASE("Benchmark Fibonacci") {
         return constexprFib2(40);
     };
 }
-}

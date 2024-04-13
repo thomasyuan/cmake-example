@@ -16,4 +16,4 @@ target_link_libraries(TestHelloWorld
     gtest::gtest)
 
 target_link_libraries(BenchmarkHelloWorld
-    benchmark::benchmark)
+    Catch2::Catch2WithMain)
